@@ -13,6 +13,8 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.11/css/all.css" integrity="sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/"
+        crossorigin="anonymous">
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
@@ -75,6 +77,12 @@
                             <ul class="list-group">
                                 <li class="list-group-item">
                                     <a href=" {{ route('home') }} ">Home</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href=" {{ route('categories') }} ">Categories</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href=" {{ route('category.create') }} ">Create new category</a>
                                 </li>
                                 <li class="list-group-item">
                                     <a href=" {{ route('post.create') }} ">Create new post</a>
