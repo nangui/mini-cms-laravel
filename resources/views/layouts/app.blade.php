@@ -68,7 +68,29 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+            <div class="container">
+                <div class="row">
+                    @if(Auth::check())
+                        <div class="col-lg-3">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <a href=" {{ route('home') }} ">Home</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href=" {{ route('post.create') }} ">Create new post</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-9">
+                            @yield('content')
+                        </div>
+                    @else
+                        <div class="col-lg-8 offset-lg-2">
+                            @yield('content')
+                        </div>
+                    @endif
+                </div>
+            </div>
         </main>
     </div>
 </body>
