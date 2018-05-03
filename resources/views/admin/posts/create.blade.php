@@ -1,12 +1,24 @@
 @extends('layouts.app')
 
 @section('content')
+
+@if(count($errors) > 0)
+    @foreach($errors->all() as $error)
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ $error }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endforeach
+@endif
+
 <div class="card">
     <div class="card-header">
         Create a new post
     </div>
     <div class="card-body">
-        <form action="{{ route('post.store') }}" method="POST">
+        <form action="{{ route('post.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="title">Title</label>
