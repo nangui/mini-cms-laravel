@@ -12,6 +12,8 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{{ asset('js/toastr.min.js') }}"></script>
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.11/css/all.css" integrity="sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/"
         crossorigin="anonymous">
@@ -21,6 +23,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}">
 </head>
 <body>
     <div id="app">
@@ -101,5 +104,16 @@
             </div>
         </main>
     </div>
+    <script>
+        @if(Session::has('success'))
+            toastr.options.closeButton = true
+            toastr.options.showEasing = 'swing'
+            toastr.options.hideEasing = 'linear'
+            toastr.options.closeEasing = 'linear'
+            toastr.options.showMethod = 'slideDown'
+            toastr.options.progressBar = true
+            toastr.success(" {{ Session::get('success') }} ", 'Confirmation', {timeOut: 4000})
+        @endif
+    </script>
 </body>
 </html>
