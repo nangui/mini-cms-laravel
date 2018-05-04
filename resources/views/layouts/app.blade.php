@@ -114,6 +114,15 @@
             toastr.options.progressBar = true
             toastr.success(" {{ Session::get('success') }} ", 'Confirmation', {timeOut: 4000})
         @endif
+        @if(Session::has('info'))
+            toastr.options.closeButton = true
+            toastr.options.showEasing = 'swing'
+            toastr.options.hideEasing = 'linear'
+            toastr.options.closeEasing = 'linear'
+            toastr.options.showMethod = 'slideDown'
+            toastr.options.progressBar = true
+            toastr.info(" {{ Session::get('info') }} ", 'Confirmation', {timeOut: 4000})
+        @endif
     </script>
 </body>
 </html>
