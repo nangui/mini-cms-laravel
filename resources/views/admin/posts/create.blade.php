@@ -20,16 +20,16 @@
                 <input type="file" class="form-control" name="featured">
             </div>
             <div class="form-group">
-                <label for="content">Post content</label>
-                <textarea class="form-control" name="content" id="content" cols="30" rows="6"></textarea>
-            </div>
-            <div class="form-group">
                 <label for="category">Select a Category</label>
                 <select name="category_id" id="category" class="form-control">
                     @foreach($categories as $category)
                         <option value="{{$category->id}}">{{$category->name}}</option>
                     @endforeach
                 </select>
+            </div>
+            <div class="form-group">
+                <label for="content">Post content</label>
+                <textarea class="form-control" name="content" id="content" cols="30" rows="6"></textarea>
             </div>
             <div class="form-group">
                 <div class="text-center">
