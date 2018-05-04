@@ -24,6 +24,14 @@
                 <textarea class="form-control" name="content" id="content" cols="30" rows="6"></textarea>
             </div>
             <div class="form-group">
+                <label for="category">Select a Category</label>
+                <select name="category_id" id="category" class="form-control">
+                    @foreach($categories as $category)
+                        <option value="{{$category->id}}">{{$category->name}}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group">
                 <div class="text-center">
                     <button class="btn btn-success" type="submit">Store post</button>
                 </div>
