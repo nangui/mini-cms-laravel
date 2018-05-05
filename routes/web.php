@@ -56,6 +56,11 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function() {
         'as' => 'posts'
     ]);
 
+    Route::get('/posts/trashed', [
+        'uses' => 'PostsController@trashed',
+        'as' => 'posts.trashed'
+    ]);
+
     Route::get('/post/create', [
         'uses' => 'PostsController@create',
         'as' => 'post.create'
@@ -74,5 +79,20 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function() {
     Route::get('/post/delete/{id}', [
         'uses' => 'PostsController@destroy',
         'as' => 'post.destroy'
+    ]);
+
+    Route::post('/post/update/{id}', [
+        'uses' => 'PostsController@update',
+        'as' => 'post.update'
+    ]);
+
+    Route::get('/post/kill/{id}', [
+        'uses' => 'PostsController@kill',
+        'as' => 'post.kill'
+    ]);
+
+    Route::get('/post/restore/{id}', [
+        'uses' => 'PostsController@restore',
+        'as' => 'post.restore'
     ]);
 });

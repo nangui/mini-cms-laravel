@@ -6,8 +6,9 @@
             <tr class="text-center">
                 <th scope="col">Title</th>
                 <th scope="col">Image</th>
-                <th scope="col">Edit</th>
-                <th scope="col">Trash</th>
+                <th scope="col">Trashed date</th>
+                <th scope="col">Restore</th>
+                <th scope="col">Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -17,9 +18,10 @@
                     <td>
                         <img class="img img-responsive" width="90" height="50" src="{{ $post->featured }}" alt="featured">
                     </td>
+                    <td>{{ $post->deleted_at }}</td>
                     <td>
-                        <a class="btn btn-sm btn-warning" href=" {{ route('post.edit', ['id' => $post->id]) }} ">
-                            <i class="fas fa-edit"></i>
+                        <a href="{{ route('post.restore', ['id' => $post->id]) }}" class="btn btn-sm btn-success">
+                            <i class="fas fa-reply"></i>
                         </a>
                     </td>
                     <td>
