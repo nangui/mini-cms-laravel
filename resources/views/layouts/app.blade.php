@@ -94,13 +94,19 @@
                                     <a href="{{route('tags')}}">Tags</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a href=" {{ route('category.create') }} ">Create new category</a>
+                                    <a href=" {{ route('category.create') }} ">New category</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a href=" {{ route('post.create') }} ">Create new post</a>
+                                    <a href=" {{ route('post.create') }} ">New post</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a href="{{route('tag.create')}}">Create new tag</a>
+                                    <a href="{{route('tag.create')}}">New tag</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="{{route('users')}}">Users</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="{{route('user.create')}}">New user</a>
                                 </li>
                             </ul>
                         </div>
