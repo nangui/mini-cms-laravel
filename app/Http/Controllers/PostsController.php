@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Blog\Category;
+use App\Blog\Tag;
 use App\Blog\Post;
 use Illuminate\Http\Request;
 use Session;
@@ -36,15 +37,13 @@ class PostsController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
-
-        if($categories->count() == 0)
+        if(Category::all()->count() == 0)
         {
             Session::flash('info', 'You must have some categories before attempting to create some post.');
             return redirect()->route('category.create');
         }
 
-        return view('admin.posts.create')->with('categories', $categories);
+        return view('admin.posts.create')->with(['categories' => Category::all(), 'tags' => Tag::all()]);
     }
 
     /**
@@ -59,7 +58,8 @@ class PostsController extends Controller
             'title' => 'required|max:255',
             'featured' => 'required|image',
             'content' => 'required',
-            'category_id' => 'required'
+            'category_id' => 'required',
+            'tags' => 'required'
         ]);
 
         $featured = $request->featured;
@@ -74,6 +74,8 @@ class PostsController extends Controller
             'category_id' => $request->category_id,
             'slug' => str_slug($request->title)
         ]);
+
+        $post->tags()->attach($request->tags);
 
         Session::flash('success', 'Post created succesfully.');
 
@@ -101,7 +103,7 @@ class PostsController extends Controller
     {
         $post = Post::findOrFail($id);
 
-        return view('admin.posts.edit')->with(['post' => $post, 'categories' => Category::all()]);
+        return view('admin.posts.edit')->with(['post' => $post, 'categories' => Category::all(), 'tags' => Tag::all()]);
     }
 
     /**
@@ -132,6 +134,8 @@ class PostsController extends Controller
         $post->category_id = $request->category_id;
 
         $post->save();
+
+        $post->tags()->sync($request->tags);
 
         Session::flash('success', 'Post updated succefully.');
         return redirect()->back();

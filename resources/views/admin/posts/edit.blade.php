@@ -23,13 +23,27 @@
                 <label for="category">Select a Category</label>
                 <select name="category_id" id="category" class="form-control">
                     @foreach($categories as $category)
+                        <option 
                         @if($post->category_id == $category->id)
-                            <option selected="selected" value="{{$category->id}}">{{$category->name}}</option>
-                        @else
-                            <option value="{{$category->id}}">{{$category->name}}</option>
+                            selected="selected"
                         @endif
+                        value="{{$category->id}}">{{$category->name}}</option>
                     @endforeach
                 </select>
+            </div>
+            <label for="tags">Select tags</label>
+            <div class="form-group">
+                @foreach($tags as $tag)
+                <div class="checkbox">
+                        <label><input type="checkbox" name="tags[]" value="{{$tag->id}}"
+                        @foreach($post->tags as $t)
+                            @if($tag->id == $t->id)
+                                checked="checked"
+                            @endif
+                        @endforeach
+                        > {{$tag->tag}}</label>
+                    </div>
+                @endforeach
             </div>
             <div class="form-group">
                 <label for="content">Post content</label>
