@@ -101,4 +101,22 @@ class UsersController extends Controller
     {
         //
     }
+
+    public function admin($id)
+    {
+        $user = User::findOrFail($id);
+        $user->admin = 1;
+        $user->save();
+        Session::flash('success', 'Succesfully changed user permissions.');
+        return redirect()->back();
+    }
+
+    public function not_admin($id)
+    {
+        $user = User::findOrFail($id);
+        $user->admin = 0;
+        $user->save();
+        Session::flash('success', 'Succesfully changed user permissions.');
+        return redirect()->back();
+    }
 }
