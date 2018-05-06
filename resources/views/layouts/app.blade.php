@@ -20,10 +20,10 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
-
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}">
+    @yield('styles')
 </head>
 <body>
     <div id="app">
@@ -113,6 +113,9 @@
                                 <li class="list-group-item">
                                     <a href="{{route('user.profile')}}">My profile</a>
                                 </li>
+                                <li class="list-group-item">
+                                    <a href="{{route('settings')}}">Site settings</a>
+                                </li>
                             </ul>
                         </div>
                         <div class="col-lg-9">
@@ -147,5 +150,6 @@
             toastr.info(" {{ Session::get('info') }} ", 'Confirmation', {timeOut: 4000})
         @endif
     </script>
+    @yield('scripts')
 </body>
 </html>

@@ -48,3 +48,14 @@
     </div>
 </div>
 @stop
+
+@section('styles')
+<link href="{{asset('summernote/summernote.css')}}" rel="stylesheet">
+@stop
+
+@section('scripts')
+<script src="{{ asset('summernote/summernote.js') }}"></script>
+    <script>
+        $('#content').summernote();
+    </script>
+@stop
