@@ -114,7 +114,7 @@
                                     <a href="{{route('user.profile')}}">My profile</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a href="{{route('settings')}}">Site settings</a>
+                                    <a href="{{route('settings')}}">Settings</a>
                                 </li>
                             </ul>
                         </div>
