@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="card text-center">
+    <div class="card-header">
+        Trashed posts
+    </div>
+    <div class="card-body">
     <table class="table">
         <thead class="thead-dark">
             <tr class="text-center">
@@ -33,4 +38,6 @@
             @endforeach
         </tbody>
     </table>
+    </div>
+</div>
 @stop
